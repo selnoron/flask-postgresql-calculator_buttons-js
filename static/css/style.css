@@ -4,7 +4,7 @@
     margin-inline-start: auto;
     margin-inline-end: auto;
     margin-block-start: 2em;
-    max-inline-size: 22rem;
+    max-inline-size: 30rem;
     overflow: hidden;
     color: hsl(202, 11%, 29%);
   }
@@ -32,8 +32,7 @@
     padding-inline-end: 1.25rem;
     padding-inline-start: 1.25rem;
     font-size: 1.5rem;
-    /* Playful Styles */
-    inline-size: 70px;
+    inline-size: 105px;
     block-size: 70px;
     margin: 0.25rem;
     border-radius: 40px;
@@ -45,6 +44,16 @@
   }
   .calculator__key--operator {
     background: hsl(208, 25%, 86%);
+    border: none;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-end: 1.25rem;
+    padding-inline-start: 1.25rem;
+    font-size: 1.5rem;
+    inline-size: 105px;
+    block-size: 70px;
+    margin: 0.25rem;
+    border-radius: 40px;
   }
   .calculator__key--operator:active {
     background: hsl(208, 24%, 80%);
@@ -54,4 +63,27 @@
     grid-row: 2 / span 4;
     background: hsl(357, 100%, 72%);
     height: auto;
+    border: none;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-end: 1.25rem;
+    padding-inline-start: 1.25rem;
+    font-size: 1.5rem;
+    inline-size: 105px;
+    margin: 0.25rem;
+    border-radius: 40px;
+  }
+
+  #clear {
+    background: hsl(208, 25%, 86%);
+    border: none;
+    padding-block-start: 1rem;
+    padding-block-end: 1rem;
+    padding-inline-end: 1.25rem;
+    padding-inline-start: 1.25rem;
+    font-size: 1.5rem;
+    inline-size: 105px;
+    block-size: 70px;
+    margin: 0.25rem;
+    border-radius: 40px;
   }

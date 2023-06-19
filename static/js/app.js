@@ -1,24 +1,81 @@
-let numbers = document.querySelectorAll('.num')
-let text = document.querySelectorAll('text')
-let plus = document.querySelectorAll('plus')
-let minus = document.querySelectorAll('minus')
-let multi = document.querySelectorAll('multi')
-let odd = document.querySelectorAll('odd')
-let ac = document.querySelectorAll('clear')
-let res = document.querySelectorAll('equal')
+ const numbers = document.querySelectorAll('.calculator__key')
+const text = document.querySelector('#text')
+const opers = document.querySelectorAll('.calculator__key--operator')
+const ac = document.querySelector('#clear')
+const res = document.querySelector('#equal')
 
 let nums = []
 
-function clear() {
+ac.addEventListener('click', () => {
     text.innerHTML = '0'
+    nums = []
+})
+
+for(let num of numbers) {
+    num.addEventListener('click', () => {
+        if (text.innerHTML == '0' && num.innerHTML != '.') {
+            text.innerHTML = ''
+        }
+        text.innerHTML += num.innerHTML
+    })
 }
 
-function add_num() {
-    text.innerHTML = num
+for(let oper of opers) {
+    oper.addEventListener('click', () => {
+        let res = ''
+        for(let n = text.innerHTML.length - 1; 0 <= n; n--) {
+            if (Number(text.innerHTML[n]) || text.innerHTML[n] == '.') {
+                res += text.innerHTML[n]
+            }
+            else {
+                break
+            }
+        }
+        nums.push(Number(res.split('').reverse().join('')))
+        nums.push(oper.innerHTML)
+        text.innerHTML += oper.innerHTML
+        console.log(nums)
+    })
 }
 
-for (let num of numbers) {
-    num.addEventListener('click', () => {text.innerHTML += num.innerHTML})
-}
+function calculate(arr) {
+    // умножение и деление
+    for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === '*') {
+    arr[i - 1] = arr[i - 1] * arr[i + 1];
+    arr.splice(i, 2);
+    i--;
+    } else if (arr[i] === '/') {
+    arr[i - 1] = arr[i - 1] / arr[i + 1];
+    arr.splice(i, 2);
+    i--;
+    }
+    }
+    // плюс и минус
+    let result = arr[0];
+    for (let i = 1; i < arr.length; i += 2) {
+    if (arr[i] === '+') {
+    result += arr[i + 1];
+    } else if (arr[i] === '-') {
+    result -= arr[i + 1];
+    }
+    }
+    return result;
+    }
 
-ac.addEventListener('click', clear)
+res.addEventListener('click', () => {
+    let res = ''
+    for(let n = text.innerHTML.length - 1; 0 <= n; n--) {
+        if (Number(text.innerHTML[n]) || text.innerHTML[n] == '.') {
+            res += text.innerHTML[n]
+        }
+        else {
+            break
+        }
+    }
+    nums.push(Number(res.split('').reverse().join('')))
+    console.log(nums)
+    text.innerHTML += '=' +  calculate(nums)
+    nums = []
+
+})
