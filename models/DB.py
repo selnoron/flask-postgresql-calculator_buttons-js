@@ -25,22 +25,30 @@ class DB:
             with conn.cursor() as cur:
                 cur.execute("SELECT * FROM history")
                 rows = cur.fetchall()
-            result = ''
+            result = []
             for row in rows:
-                result += str(row)
-            if len(result) < 1:
-                return 1
-            else:
-                return result
+                result.append(row[1])
+            return result
         except:
             return 1
 
     @staticmethod
-    def insert_hist(data) -> str:
+    def insert_hist(data: str) -> str:
+        conn = DB.connect()
+        with conn.cursor() as cur:
+            cur.execute(query=f"INSERT INTO history (operation) VALUES ('{data}');")
+        return 0
+        
+    
+    @staticmethod
+    def create() -> str:
         conn = DB.connect()
         try:
             with conn.cursor() as cur:
-                cur.execute(f"INSERT INTO history (operation) VALUES ({data})")
+                cur.execute(f'''CREATE TABLE IF NOT EXISTS history (
+                                    id SERIAL PRIMARY KEY, 
+                                    operation VARCHAR(100)
+                            )''')
             return 0
         except:
             return 1

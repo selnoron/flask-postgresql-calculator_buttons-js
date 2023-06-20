@@ -7,25 +7,25 @@ const res = document.querySelector('#equal')
 let nums = []
 
 ac.addEventListener('click', () => {
-    text.innerHTML = '0'
+    text.value= '0'
     nums = []
 })
 
 for(let num of numbers) {
     num.addEventListener('click', () => {
-        if (text.innerHTML == '0' && num.innerHTML != '.') {
-            text.innerHTML = ''
+        if (text.value == '0' && num.innerHTML != '.') {
+            text.value = ''
         }
-        text.innerHTML += num.innerHTML
+        text.value += num.innerHTML
     })
 }
 
 for(let oper of opers) {
     oper.addEventListener('click', () => {
         let res = ''
-        for(let n = text.innerHTML.length - 1; 0 <= n; n--) {
-            if (Number(text.innerHTML[n]) || text.innerHTML[n] == '.') {
-                res += text.innerHTML[n]
+        for(let n = text.value.length - 1; 0 <= n; n--) {
+            if (Number(text.value[n]) || text.value[n] == '.') {
+                res += text.value[n]
             }
             else {
                 break
@@ -33,7 +33,7 @@ for(let oper of opers) {
         }
         nums.push(Number(res.split('').reverse().join('')))
         nums.push(oper.innerHTML)
-        text.innerHTML += oper.innerHTML
+        text.value += oper.innerHTML
         console.log(nums)
     })
 }
@@ -65,9 +65,9 @@ function calculate(arr) {
 
 res.addEventListener('click', () => {
     let res = ''
-    for(let n = text.innerHTML.length - 1; 0 <= n; n--) {
-        if (Number(text.innerHTML[n]) || text.innerHTML[n] == '.') {
-            res += text.innerHTML[n]
+    for(let n = text.value.length - 1; 0 <= n; n--) {
+        if (Number(text.value[n]) || text.value[n] == '.') {
+            res += text.value[n]
         }
         else {
             break
@@ -75,7 +75,7 @@ res.addEventListener('click', () => {
     }
     nums.push(Number(res.split('').reverse().join('')))
     console.log(nums)
-    text.innerHTML += '=' +  calculate(nums)
+    text.value += '=' +  calculate(nums)
     nums = []
 
 })

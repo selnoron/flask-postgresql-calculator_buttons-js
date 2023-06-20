@@ -16,6 +16,8 @@
     padding-block-end: 0.5rem;
     padding-inline-end: 1.25rem;
     text-align: end;
+    width: 95%;
+    text-decoration: none;
   }
   .calculator__keys {
     display: grid;
@@ -23,6 +25,7 @@
     grid-gap: 1px;
     background: hsl(255, 100%, 100%);
     padding: 0.5rem;
+    font-family: Arial, Helvetica, sans-serif;
   }
   .calculator__key {
     background: hsl(210, 25%, 95%);
@@ -32,10 +35,11 @@
     padding-inline-end: 1.25rem;
     padding-inline-start: 1.25rem;
     font-size: 1.5rem;
-    inline-size: 105px;
-    block-size: 70px;
+    inline-size: 60px;
+    block-size: 60px;
     margin: 0.25rem;
     border-radius: 40px;
+    text-align: center;
   }
   .calculator__key:active,
   .calculator__key:focus {
@@ -50,10 +54,11 @@
     padding-inline-end: 1.25rem;
     padding-inline-start: 1.25rem;
     font-size: 1.5rem;
-    inline-size: 105px;
-    block-size: 70px;
+    inline-size: 60px;
+    block-size: 60px;
     margin: 0.25rem;
     border-radius: 40px;
+    text-align: center;
   }
   .calculator__key--operator:active {
     background: hsl(208, 24%, 80%);
@@ -69,7 +74,7 @@
     padding-inline-end: 1.25rem;
     padding-inline-start: 1.25rem;
     font-size: 1.5rem;
-    inline-size: 105px;
+    inline-size: 100px;
     margin: 0.25rem;
     border-radius: 40px;
   }
@@ -82,8 +87,31 @@
     padding-inline-end: 1.25rem;
     padding-inline-start: 1.25rem;
     font-size: 1.5rem;
-    inline-size: 105px;
-    block-size: 70px;
+    inline-size: 60px;
+    block-size: 60px;
     margin: 0.25rem;
     border-radius: 40px;
+    text-align: center;
   }
+
+.hiss {
+  border-radius: 10px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  margin-block-start: 2em;
+  max-inline-size: 10rem;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.inv-hiss {
+  width: 90%;
+  height: 80%;
+  color: hsl(202, 11%, 29%);
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  text-align: center;
+}

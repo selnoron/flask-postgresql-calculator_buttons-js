@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <title>helo</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <title>helo</title>
 </head>
+
 <body>
+  <form action="/" method="post">
     <div class="calculator">
-        <div class="calculator__output" id="text">0</div>
-        <div class="calculator__keys">
-          <button class="calculator__key--operator" id="plus">+</button>
-          <button class="calculator__key--operator" id="minus">-</button>
-          <button class="calculator__key--operator" id="multi">*</button>
-          <button class="calculator__key--operator" id="odd">÷</button>
-          <button class="calculator__key">7</button>
-          <button class="calculator__key">8</button>
-          <button class="calculator__key">9</button>
-          <button class="calculator__key">4</button>
-          <button class="calculator__key">5</button>
-          <button class="calculator__key">6</button>
-          <button class="calculator__key">1</button>
-          <button class="calculator__key">2</button>
-          <button class="calculator__key">3</button>
-          <button class="calculator__key">0</button>
-          <button class="calculator__key">.</button>
-          <button id="clear">AC</button>
-          <button class="calculator__key--enter" id="equal">=</button>
-        </div>
+      <input class="calculator__output" id="text" name="data" value="0"></input>
+      <div class="calculator__keys">
+        <div class="calculator__key--operator" id="plus">+</div>
+        <div class="calculator__key--operator" id="minus">-</div>
+        <div class="calculator__key--operator" id="multi">*</div>
+        <div class="calculator__key--operator" id="odd">/</div>
+        <div class="calculator__key">7</div>
+        <div class="calculator__key">8</div>
+        <div class="calculator__key">9</div>
+        <div class="calculator__key">4</div>
+        <div class="calculator__key">5</div>
+        <div class="calculator__key">6</div>
+        <div class="calculator__key">1</div>
+        <div class="calculator__key">2</div>
+        <div class="calculator__key">3</div>
+        <div class="calculator__key">0</div>
+        <div class="calculator__key">.</div>
+        <div id="clear">AC</div>
+        <button class="calculator__key--enter" id="equal" type="submit">=</button>
       </div>
-      <script src="../static/js/app.js"></script>
+    </div>
+  </form>
+  <div class="hiss">
+    <div class="inv-hiss">
+        {% for i in range(le, 0, -1) %}
+        {{his[i]}} <br>
+        {% endfor %}
+    </div>
+  </div>
+  <script src="../static/js/app.js"></script>
 </body>
+
 </html>

@@ -10,12 +10,18 @@ app.secret_key = "8374tgrdsf8sdf973d4gf873gt36fgd7"
 # ---------------------------------------------
 @app.route("/", methods=["GET", "POST"])
 def main_page():
+    if request.method == 'POST':
+        data: str = request.form.getlist('data')
+        DB.insert_hist(data[0])
     return render_template(
-        
+        'index.html',
+        his=DB.get_hist(),
+        le=len(DB.get_hist())
     )
 
 
 if __name__ == "__main__":
+    DB.create()
     app.run(
         host='localhost',
         port=8000
